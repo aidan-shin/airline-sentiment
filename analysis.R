@@ -7,8 +7,8 @@ library(ggplot2)
 library(wordcloud)
 library(readr)
 library(tidyverse)
-library(wordcloud2)
-setwd("/Users/jasonshin/Desktop/Research")
+library(wordcloud2) # import necessary libraries
+setwd("/Users/<>/Desktop/Research") # change as necessary
 dat=read_csv("USAirlinesTweets.csv")
 neu_dat=dat %>% filter(sentiment=="neutral")
 pos_dat=dat %>% filter(sentiment=="positive")
@@ -27,14 +27,15 @@ pos_tidy_dat <- pos_dat %>% tidytext::unnest_tokens(word, tweet) %>% group_by(wo
 neg_tidy_dat <- neg_dat %>% tidytext::unnest_tokens(word, tweet) %>% group_by(word) %>% filter(n() > 10) %>% ungroup()
 stopword <- as_tibble(stopwords::stopwords("en"))
 stopword <- rename(stopword,word=value)
+additional <- tibble(
+  word = c("t.co", "http","2","amp","3","4","w")
+) # adding additional stopwords
+stopword <- full_join(stopword, additional);
 td <- anti_join(tidy_dat,stopword,by="word")
 neu_td <- anti_join(neu_tidy_dat,stopword,by="word")
 pos_td <- anti_join(pos_tidy_dat,stopword,by="word")
 neg_td <- anti_join(neg_tidy_dat,stopword,by="word")
 word_count <- count(td,word,sort=TRUE)
-print(word_count,n=100)
+print(word_count,n=100) 
 td %>%count(word)%>%with(wordcloud(word, n, max.words=100, colors=brewer.pal(8, "Dark2"))) #brewer.pal(n,name) = color palette, n=# of colors, name=c("Accent", "Dark2", "Paired" #"Pastel1", "Pastel2", "Set1", "Set2", "Set3")
-#wordcloud2(word_count,figPath="airplane.jpg")
-#install.packages("remotes")
-#remotes::install_github("Lchiffon/wordcloud2")
-
+# makes word cloud

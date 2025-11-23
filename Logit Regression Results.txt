@@ -1,0 +1,52 @@
+formula: 
+as.factor(sentiment) ~ .data_americanair + .data_awesome + .data_back + .data_best + .data_call + .data_cancelled + .data_change + .data_customer + .data_delayed + .data_fleek + .data_fleet + .data_flight + .data_gate + .data_good + .data_great + .data_guys + .data_help + .data_hold + .data_hour + .data_jetblue + .data_just + .data_know + .data_love + .data_much + .data_need + .data_plane + .data_please + .data_service + .data_southwestair + .data_still + .data_thank + .data_time + .data_tomorrow +  
+    .data_united + .data_usairways
+data:    clean_data
+
+ link  threshold nobs  logLik    AIC      niter max.grad cond.H 
+ logit flexible  36996 -28818.92 57711.83 6(0)  9.31e-12 3.3e+03
+
+Coefficients:
+                   Estimate Std. Error z value Pr(>|z|)    
+.data_americanair  -1.32251    0.08837 -14.965  < 2e-16 ***
+.data_awesome       2.02139    0.24120   8.380  < 2e-16 ***
+.data_back         -1.29428    0.12377 -10.457  < 2e-16 ***
+.data_best          0.67341    0.16418   4.102 4.10e-05 ***
+.data_call         -2.57060    0.16382 -15.692  < 2e-16 ***
+.data_cancelled    -2.32784    0.12018 -19.369  < 2e-16 ***
+.data_change       -1.23232    0.13969  -8.822  < 2e-16 ***
+.data_customer     -1.76618    0.12212 -14.462  < 2e-16 ***
+.data_delayed      -3.03254    0.18761 -16.164  < 2e-16 ***
+.data_fleek        -0.04640    0.15132  -0.307  0.75913    
+.data_fleet        -0.04476    0.15420  -0.290  0.77160    
+.data_flight       -1.51874    0.08502 -17.864  < 2e-16 ***
+.data_gate         -1.70592    0.13406 -12.725  < 2e-16 ***
+.data_good         -0.15518    0.13750  -1.129  0.25906    
+.data_great         1.36764    0.14377   9.513  < 2e-16 ***
+.data_guys         -0.61858    0.13044  -4.742 2.11e-06 ***
+.data_help         -1.34976    0.10778 -12.523  < 2e-16 ***
+.data_hold         -3.44330    0.20288 -16.972  < 2e-16 ***
+.data_hour         -3.42643    0.16015 -21.395  < 2e-16 ***
+.data_jetblue      -0.27504    0.08723  -3.153  0.00162 ** 
+.data_just         -0.94595    0.10241  -9.237  < 2e-16 ***
+.data_know         -0.75686    0.12791  -5.917 3.28e-09 ***
+.data_love          0.84762    0.14721   5.758 8.52e-09 ***
+.data_much          0.28318    0.15191   1.864  0.06231 .  
+.data_need         -1.27952    0.11745 -10.894  < 2e-16 ***
+.data_plane        -2.00404    0.13266 -15.106  < 2e-16 ***
+.data_please       -0.85654    0.11236  -7.623 2.48e-14 ***
+.data_service      -1.54940    0.11043 -14.031  < 2e-16 ***
+.data_southwestair -0.42949    0.08728  -4.921 8.63e-07 ***
+.data_still        -2.08179    0.13805 -15.080  < 2e-16 ***
+.data_thank         1.10978    0.09336  11.888  < 2e-16 ***
+.data_time         -1.50355    0.11373 -13.220  < 2e-16 ***
+.data_tomorrow     -0.86047    0.13386  -6.428 1.29e-10 ***
+.data_united       -1.24632    0.08549 -14.579  < 2e-16 ***
+.data_usairways    -1.66858    0.08991 -18.558  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Threshold coefficients:
+    Estimate Std. Error z value
+0|1 -0.41922    0.07891  -5.313
+1|2  0.68602    0.07900   8.684
